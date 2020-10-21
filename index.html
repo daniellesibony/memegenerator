@@ -14,29 +14,33 @@
     <header class="header-container">
         <h1 class="logo">Meme Generator</h1>
         <ul class="main-nav">
-            <li><a href="#" class="gallery-anchor">Gallery</a></li>
+            <li><a href="#" class="gallery-anchor" onclick="showGallery()">Gallery</a></li>
             <li><a href="#" class="about-anchor">About</a></li>
         </ul>
     </header>
 
+    <div class="meme-editor">
+        <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color"
+            value="#00FFFF" onchange="setOutlineColor(this.value)">
+        <label for="shape-color">Pick Your Shape Color: </label> <input id="shape-color" type="color" value="#FFFFFF"
+            onchange="setFillColor(this.value)">
+        <input type="text" placeholder="Enter Text Here" onchange="setText(event)">
+        <button onclick="setCurrDrawing('text')">Enter</button>
+        <button onclick="clearCanvas()">Clear</button>
 
-    <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color" value="#00FFFF" onchange="setOutlineColor(this.value)">
-    <label for="shape-color">Pick Your Shape Color: </label> <input id="shape-color" type="color" value="#000000" onchange="setFillColor(this.value)">
-    <input type="text" placeholder="Enter Text Here" onchange="setText(event)">
-    <button onclick="setShape('text')">Text</button>
-    <button onclick="clearCanvas()">Clear</button>
+        <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
 
-    <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
 
-<div class="canvas-container">
-<canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
-</div>
+        <div class="canvas-container">
+            <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+        </div>
+    </div>
 
     <main class="main-container">
         <div class="search-bar">
             <input type="text" placeholder="search">
         </div>
-        <div class="gallery-container images grid">
+        <div onclick="showCanvas()" class="gallery-container images grid">
             <img src="images/1.jpg" class="img img1">
             <img src="images/2.jpg" class="img img2">
             <img src="images/3.jpg" class="img img3">

@@ -1,58 +1,49 @@
 'use strict'
 
-var gCanvas;
-var gCtx;
-var gCurrOutlineColor = 'cyan'
-var gCurrFillColor = 'black'
-var gText = 'bob'
+
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
-    console.log('The context:', gCtx);
     drawImg()
-    console.log(gMeme.selectedImgId)
 
 }
 
 
 function drawText(text, x, y) {
-    // gCtx.strokeStyle = 'red'
-    // gCtx.fillStyle = 'white'
     gCtx.beginPath()
     gCtx.fillStyle = gCurrFillColor;
     console.log(gCurrFillColor);
     gCtx.strokeStyle = gCurrOutlineColor;
     gCtx.lineWidth = '2';
-    gCtx.font = '48px Ariel';
+    gCtx.font = '48px Impact';
     gCtx.textAlign = 'start';
-    gCtx.fillText(text, x, y);
-    gCtx.strokeText(text, x, y);
+    gCtx.fillText(text, 100, 50);
+    gCtx.strokeText(text, 100, 50);
 }
 
 
 
-// function clearCanvas() {
-//     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
-// }
-
-function drawImg() {
-    var elImg = document.querySelector('img')
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+    drawImg()
 }
 
 
-function setShape(shape) {
-    gCurrShape = shape
+function setCurrDrawing(text) {
+    gCurrDrawing = text
 }
 
-function setOutlineColor(color) {
-    gCurrOutlineColor = color
+function onSetOutlineColor(color) {
+  setOutlineColor(color)
 }
 
-function setFillColor(color) {
-    gCurrFillColor = color
+function onSetFillColor(color) {
+   setFillColor(color)
 }
+
+
+
 
 function setText(ev) {
     const { value } = ev.target
@@ -61,8 +52,12 @@ function setText(ev) {
 
 function draw(ev) {
     const { offsetX, offsetY } = ev
-    if (gText === 'text') {
-        drawText(gText, offsetX, offsetY)
+
+    switch (gCurrDrawing) {
+        case 'text':
+            drawText(gText, offsetX, offsetY)
+            break;
+
     }
 }
 
@@ -70,7 +65,9 @@ function draw(ev) {
 
 function drawImg() {
     var img = new Image()
-    img.src = gMeme.selectedImg;
+    var currImg = getCurrImage()
+    var currImgUrl = currImg.url
+    img.src = currImgUrl;
     console.log(img.src)
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
@@ -78,3 +75,20 @@ function drawImg() {
 }
 
 
+function showGallery() {
+	var elGallery = document.querySelector(".gallery");
+	if (elGallery.style.display === "none") {
+		elGallery.style.display = "block";
+	} else {
+		elGallery.style.display = "none";
+	}
+}
+
+function showMemeEditor() {
+	var elMemeEditor = document.querySelector(".meme-editor");
+	if (elMemeEditor.style.display === "none") {
+		elMemeEditor.style.display = "block";
+	} else {
+		elMemeEditor.style.display = "none";
+	}
+}
