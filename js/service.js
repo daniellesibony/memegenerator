@@ -13,6 +13,10 @@ var gImgs = [{ id: 1, url: 'images/1.jpg', keywords: ['politics'] },
 { id: 16, url: 'images/16.jpg' }, { id: 17, url: 'images/17.jpg' },
 { id: 17, url: 'images/17.jpg' }];
 
+//  let img = gImgs[0]
+//  let currImg = img.url
+//  let imgId = img.id
+
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
@@ -29,4 +33,14 @@ var gMeme = {
         color: 'black'
 
     }]
+}
+
+
+function getMemeById(memeId) {
+    // let imageId = gImages.find(image => image.id)
+    // if (gMeme.selectedImgId !== imageId) return;
+    let meme = gMemes.find(function (meme) {
+        return memeId === meme.selectedImgId
+    })
+    return meme;
 }

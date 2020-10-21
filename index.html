@@ -8,7 +8,9 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
+<body onload="init()">
+
+
     <header class="header-container">
         <h1 class="logo">Meme Generator</h1>
         <ul class="main-nav">
@@ -16,6 +18,19 @@
             <li><a href="#" class="about-anchor">About</a></li>
         </ul>
     </header>
+
+
+    <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color" value="#00FFFF" onchange="setOutlineColor(this.value)">
+    <label for="shape-color">Pick Your Shape Color: </label> <input id="shape-color" type="color" value="#000000" onchange="setFillColor(this.value)">
+    <input type="text" placeholder="Enter Text Here" onchange="setText(event)">
+    <button onclick="setShape('text')">Text</button>
+    <button onclick="clearCanvas()">Clear</button>
+
+    <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+
+<div class="canvas-container">
+<canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+</div>
 
     <main class="main-container">
         <div class="search-bar">

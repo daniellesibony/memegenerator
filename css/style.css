@@ -11,12 +11,12 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: url(Poppins/Poppins-Regular.ttf);
+    src: url(/font/Poppins/Poppins-Regular.ttf);
 }
 
 @font-face {
     font-family: 'Poppins-light';
-    src: url(Poppins/Poppins-Light.ttf);
+    src: url(/font/Poppins/Poppins-Light.ttf);
 }
 
 
@@ -99,5 +99,15 @@ header {
     object-fit: cover;
     width: 200px;
 height: 200px;
+}
+
+
+
+canvas{
+    display: block;
+    margin: 20px auto;
+    border: 1px solid black;
+    background-color: white;
+
 }
 
