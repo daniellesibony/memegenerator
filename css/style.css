@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+/* websites have 2 vectors, in-line and block elements. a vector in-line inherantly goes from left to right, and the block vector goes from up to down. display in-line works on the horizontal vector, and display block works on the vertical vector */
+
+
+
+
+/* Fontface */
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-light';
+    src: url(Poppins/Poppins-Light.ttf);
+}
+
+
+/* Basic-- The generic look to things in the website. For ex: tags, images, etc  Always start From Top To Bottom*/
+/*  Ask to go over strong */
+html {
+    font-family: Poppins, sans-serif;
+    color: #ffffff;}
+
+body{
+    font-size: 1rem;
+    line-height: 1.25;
+    margin: 0;
+    background-color: #22252c;}
+
+h1{
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+li{
+    list-style-type: none;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+    border-radius: 37px;
+
+    
+}
+
+.logo{
+    margin-left: 80px;
+}
+
+.main-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-nav li a{
+    margin: 20px;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #383b42;
+    margin-right: 60px;
+    margin-left: 60px;
+}
+
+.search-bar {
+    margin-top: 40px;
+    margin-bottom: 40px;;
+}
+
+.grid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
+  
+}
+
+.img {
+    object-fit: cover;
+    width: 200px;
+height: 200px;
+}
+
