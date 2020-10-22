@@ -24,7 +24,7 @@ var gMeme = {
     selectedImgId: 7,
     selectedLineIdx: 0,
     lines: [{
-        txt: '',
+        txt: 'Enter Text',
         size: 48,
         align: 'start',
         outLineColor: 'white',
@@ -34,11 +34,11 @@ var gMeme = {
         y: 50
     },
     {   
-        txt: 'meme',
-        size: 48,
+        txt: 'Enter Text',
+        size: 40,
         align: 'start',
-        outLineColor: gCurrOutlineColor,
-        fillColor: gCurrFillColor,
+        outLineColor: 'red',
+        fillColor: 'blue',
         font: 'impact',
         x: 100,
         y: 100
@@ -111,6 +111,14 @@ function setMemeText(text) {
     gMeme.lines[i].txt = text
     
 } 
+
+function switchMemeText(){
+    let currLineIdx = ++gMeme.selectedLineIdx
+    if (currLineIdx >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0
+    } 
+    console.log(gMeme.selectedLineIdx)
+}
 
 
 

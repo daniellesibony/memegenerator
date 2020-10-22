@@ -12,17 +12,7 @@ function init() {
 }
 
 
-function drawLine(line) {
-    gCtx.beginPath()
-    gCtx.fillStyle = line.fillColor;
-    console.log(gCurrFillColor);
-    gCtx.strokeStyle = line.outLineColor;
-    gCtx.lineWidth = '2';
-    gCtx.font = `${line.size}px ${line.font}`
-    gCtx.textAlign = line.align
-    gCtx.fillText(line.txt, line.x, line.y);
-    gCtx.strokeText(line.txt, line.x, line.y);
-}
+
 
 
 
@@ -52,9 +42,20 @@ function onSetMemeText(ev, text) {
     renderCanvas()
 }
 
-function onIncreaseFontSize(ev, size){
-    const { value } = ev.target
-    gCurrFontSize = value
+function onSwitchMemeText() {
+    switchMemeText()
+    setTextInputValue()
+}
+
+function setTextInputValue (){
+    let currMeme = getMeme()
+    document.querySelector('.text-input').value = currMeme.lines[currMeme.selectedLineIdx].txt
+
+}
+
+function onIncreaseFontSize(size) {
+    // const { value } = ev.target
+    // gCurrFontSize = value
     setFontSize(size)
     renderCanvas()
 }
@@ -97,7 +98,7 @@ function drawImg() {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         drawLines()
     }
-    
+
 }
 
 
@@ -112,18 +113,30 @@ function showGallery() {
 
 }
 
+function drawLine(line) {
+    gCtx.beginPath()
+    gCtx.fillStyle = line.fillColor;
+    console.log(gCurrFillColor);
+    gCtx.strokeStyle = line.outLineColor;
+    gCtx.lineWidth = '2';
+    gCtx.font = `${line.size}px ${line.font}`
+    gCtx.textAlign = line.align
+    gCtx.fillText(line.txt, line.x, line.y);
+    gCtx.strokeText(line.txt, line.x, line.y);
+}
+
 function drawLines() {
     let currMeme = getMeme()
     currMeme.lines.forEach(function (line) {
         drawLine(line)
+        console.log('line is:', line)
     })
 }
 
 
 function renderCanvas() {
     drawImg()
-    drawLines()
-  
+
 
 }
 
@@ -131,6 +144,7 @@ function renderCanvas() {
 
 function showMemeEditor(imageId) {
     setSelectedImg(imageId)
+    setTextInputValue()
     renderCanvas()
     var elMemeEditor = document.querySelector('.meme-editor');
     var elGallery = document.querySelector('.main-container');
