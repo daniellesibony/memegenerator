@@ -24,37 +24,62 @@ var gMeme = {
     selectedImgId: 7,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'i like food',
-        size: 20,
-        align: 'left',
+        txt: '',
+        size: 48,
+        align: 'start',
+        outLineColor: 'white',
+        fillColor: 'black',
+        font: 'impact',
+        x: 100,
+        y: 50
+    },
+    {   
+        txt: 'meme',
+        size: 48,
+        align: 'start',
         outLineColor: gCurrOutlineColor,
         fillColor: gCurrFillColor,
-        font: 'impact'
+        font: 'impact',
+        x: 100,
+        y: 100
     }]
+    
 }
+
+
 
 
 function setFont(font) {
-    gCurrFont = font
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].font = (font)
 }
 
+
 function setFontSize(size) {
-    gCurrFontSize = size
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].size = parseInt(size)
 }
 
 
 function setOutlineColor(color) {
-    gCurrOutlineColor = color
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].outLineColor = color
 }
 
 function setFillColor(color) {
-    gCurrFillColor = color
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].fillColor = color
 }
 
+function setX(x){
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].x = x
+}
 
-
-
-
+function setY(y){
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].y = y
+}
 
 
 function getCurrImage() {
@@ -65,6 +90,13 @@ function getCurrImage() {
 }
 
 
+function getMeme(){
+    return gMeme
+}
+
+function getImages(){
+    return gImgs;
+}
 
 
 function setSelectedImg(imageId) {

@@ -7,23 +7,23 @@ var gCtx;
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
-    // drawImg()
     renderGallery()
 
 }
 
 
-function drawText(text, x, y) {
+function drawLine(line) {
     gCtx.beginPath()
-    gCtx.fillStyle = gCurrFillColor;
+    gCtx.fillStyle = line.fillColor;
     console.log(gCurrFillColor);
-    gCtx.strokeStyle = gCurrOutlineColor;
+    gCtx.strokeStyle = line.outLineColor;
     gCtx.lineWidth = '2';
-    gCtx.font = '48px Impact';
-    gCtx.textAlign = 'start';
-    gCtx.fillText(text, 100, 50);
-    gCtx.strokeText(text, 100, 50);
+    gCtx.font = `${line.size}px ${line.font}`
+    gCtx.textAlign = line.align
+    gCtx.fillText(line.txt, line.x, line.y);
+    gCtx.strokeText(line.txt, line.x, line.y);
 }
+
 
 
 
@@ -37,29 +37,53 @@ function setCurrDrawing(text) {
     gCurrDrawing = text
 }
 
-function onSetOutlineColor(color) {
-    setOutlineColor(color)
-}
-
-function onSetFillColor(color) {
-    setFillColor(color)
-}
+// function onSetOutlineColor(color) {
+//     setOutlineColor(color)
+// }
 
 
-function onSetMemeText(ev, text){
-    const {value} = ev.target
+
+
+function onSetMemeText(ev, text) {
+    const { value } = ev.target
     gText = value
     setMemeText(text)
+    console.log(text)
+    renderCanvas()
+}
+
+function onIncreaseFontSize(ev, size){
+    const { value } = ev.target
+    gCurrFontSize = value
+    setFontSize(size)
+    renderCanvas()
+}
+
+function onSetOutlineColor(ev, color) {
+    const { value } = ev.target
+    gCurrOutlineColor = value
+    setOutlineColor(color)
+    console.log(color)
+    renderCanvas()
 }
 
 
-
-function draw(ev) {
-    const { offsetX, offsetY } = ev
-    if (gCurrDrawing === 'text') {
-        drawText(gText, offsetX, offsetY)
-    }
+function onSetFillColor(ev, color) {
+    const { value } = ev.target
+    gCurrFillColor = value
+    setFillColor(color)
+    console.log(color)
+    renderCanvas()
 }
+
+
+// function draw() {
+//     const { offsetX, offsetY } = ev
+//     if (gCurrDrawing === 'text') {
+//         drawText1(gText, offsetX, offsetY)
+
+//     }
+// }
 
 
 
@@ -71,7 +95,9 @@ function drawImg() {
     console.log(img.src)
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        drawLines()
     }
+    
 }
 
 
@@ -83,14 +109,25 @@ function showGallery() {
         (elGallery.style.display = 'block') && (elMemeEditor.style.display = 'none')
     }
 
+
+}
+
+function drawLines() {
+    let currMeme = getMeme()
+    currMeme.lines.forEach(function (line) {
+        drawLine(line)
+    })
 }
 
 
-function renderCanvas(){
-   drawImg()
-   // to do:
-   // draw lines that will call draw line
+function renderCanvas() {
+    drawImg()
+    drawLines()
+  
+
 }
+
+
 
 function showMemeEditor(imageId) {
     setSelectedImg(imageId)
@@ -113,7 +150,7 @@ function showMemeEditor(imageId) {
 
 
 function renderGallery() {
-    let images = gImgs
+    let images = getImages()
     let elGallery = document.querySelector('.gallery-container')
     let strHtmls = images.map((image) => {
         console.log(image.url)
