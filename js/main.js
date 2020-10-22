@@ -1,11 +1,14 @@
 'use strict'
 
 
+var gCanvas;
+var gCtx;
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
-    drawImg()
+    // drawImg()
+    renderGallery()
 
 }
 
@@ -35,11 +38,11 @@ function setCurrDrawing(text) {
 }
 
 function onSetOutlineColor(color) {
-  setOutlineColor(color)
+    setOutlineColor(color)
 }
 
 function onSetFillColor(color) {
-   setFillColor(color)
+    setFillColor(color)
 }
 
 
@@ -75,20 +78,47 @@ function drawImg() {
 }
 
 
+
 function showGallery() {
-	var elGallery = document.querySelector(".gallery");
-	if (elGallery.style.display === "none") {
-		elGallery.style.display = "block";
-	} else {
-		elGallery.style.display = "none";
-	}
+    var elMemeEditor = document.querySelector('.meme-editor');
+    var elGallery = document.querySelector('.main-container');
+    if (elGallery.style.display === 'none') {
+        (elGallery.style.display = 'block') && (elMemeEditor.style.display = 'none')
+    }
+
 }
 
-function showMemeEditor() {
-	var elMemeEditor = document.querySelector(".meme-editor");
-	if (elMemeEditor.style.display === "none") {
-		elMemeEditor.style.display = "block";
-	} else {
-		elMemeEditor.style.display = "none";
-	}
+function showMemeEditor(imageId) {
+    setSelectedImg(imageId)
+    drawImg()
+    var elMemeEditor = document.querySelector('.meme-editor');
+    var elGallery = document.querySelector('.main-container');
+    if (elGallery.style.display === 'none') {
+        elMemeEditor.style.display = 'block'
+    }
+    if (elMemeEditor.style.display === 'none') {
+        (elMemeEditor.style.display = 'block') && (elGallery.style.display = 'none');
+    } 
+    else {
+        elMemeEditor.style.display = 'none';
+    }
+
 }
+
+
+
+
+function renderGallery() {
+    let images = gImgs
+    let elGallery = document.querySelector('.gallery-container')
+    let strHtmls = images.map((image) => {
+        console.log(image.url)
+        return `
+    <img src=${image.url} id=${image.id} class="img" onclick="showMemeEditor(${image.id})">
+    `
+    }).join('')
+
+    elGallery.innerHTML = strHtmls
+
+}
+

@@ -72,6 +72,7 @@ header {
     margin: 20px;
 }
 .main-container {
+    display: block;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,13 +99,13 @@ header {
 .img {
     object-fit: cover;
     width: 200px;
-height: 200px;
+    height: 200px;
 }
 
 
 
 canvas{
-    display: none;
+    display: block;
     margin: 20px auto;
     border: 1px solid black;
     background-color: white;
@@ -112,7 +113,12 @@ canvas{
 }
 
 .meme-editor {
-    display: block;
+    display: none;
 }
+
+.img{
+    cursor: pointer;
+}
+
 
 

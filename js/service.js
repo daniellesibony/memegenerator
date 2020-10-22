@@ -13,8 +13,6 @@ var gImgs = [{ id: 1, url: 'images/1.jpg', keywords: ['politics'] },
 { id: 16, url: 'images/16.jpg' }, { id: 17, url: 'images/17.jpg' },
 { id: 18, url: 'images/18.jpg' }];
 
-var gCanvas;
-var gCtx;
 var gCurrDrawing = 'text'
 var gCurrOutlineColor = 'white'
 var gCurrFillColor = 'black'
@@ -49,18 +47,14 @@ function setCurrDrawing(text) {
 }
 
 
-function getMemeById(memeId) {
-    // let imageId = gImages.find(image => image.id)
-    // if (gMeme.selectedImgId !== imageId) return;
-    let meme = gMemes.find(function (meme) {
-        return memeId === meme.selectedImgId
-    })
-    return meme;
+function getMemeById() {
+    let currMeme = gMeme.selectedImgId
+    return currMeme
 }
 
 
 
-function getCurrImage(){
+function getCurrImage() {
     let currImg = gImgs.find(function (img) {
         return img.id === gMeme.selectedImgId
     })
@@ -68,20 +62,31 @@ function getCurrImage(){
 }
 
 
-function showGallery() {
-	var elGallery = document.querySelector(".gallery");
-	if (elGallery.style.display === "none") {
-		elGallery.style.display = "block";
-	} else {
-		elGallery.style.display = "none";
-	}
+function getImageByUrl(imageUrl) {
+    var image = gImgs.find(function (image) {
+        return imageUrl === image.url
+    })
+    return image;
 }
 
-function showCanvas() {
-	var elCanvas = document.querySelector(".canvas");
-	if (elCanvas.style.display === "none") {
-		elCanvas.style.display = "block";
-	} else {
-		elCanvas.style.display = "none";
-	}
+function setSelectedImg(imageId){
+    gMeme.selectedImgId = imageId
 }
+
+
+
+// function _createImages() {
+//     if (!images) {
+//         images = []
+//         for (var i = 1; i <= 18; i++) {
+//             var image = gImgs[i]
+//             var imgSrc = img.url
+//             var imgId = img.id
+//             images.push(_createImages(image, imgSrc, imgId))
+//         }
+//     }
+//     gImages = images
+//     console.log(gImages)
+
+
+// }
