@@ -1,6 +1,6 @@
 'use strict'
 
-console.log('Service JS')
+const STORAGE_KEY = 'memeDB';
 
 var gImgs = [{ id: 1, url: 'images/1.jpg', keywords: ['politics'] },
 { id: 2, url: 'images/2.jpg' }, { id: 3, url: 'images/3.jpg' },
@@ -17,12 +17,14 @@ var gCurrDrawing = 'text'
 var gCurrOutlineColor = 'white'
 var gCurrFillColor = 'black'
 var gText = 'change the text'
+var gCurrFont = 'impact'
+var gCurrFontSize = '48'
 
 var gMeme = {
     selectedImgId: 7,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'I never eat Falafel',
+        txt: 'i like food',
         size: 20,
         align: 'left',
         outLineColor: gCurrOutlineColor,
@@ -31,6 +33,14 @@ var gMeme = {
     }]
 }
 
+
+function setFont(font) {
+    gCurrFont = font
+}
+
+function setFontSize(size) {
+    gCurrFontSize = size
+}
 
 
 function setOutlineColor(color) {
@@ -42,15 +52,8 @@ function setFillColor(color) {
 }
 
 
-function setCurrDrawing(text) {
-    gCurrDrawing = text
-}
 
 
-function getMemeById() {
-    let currMeme = gMeme.selectedImgId
-    return currMeme
-}
 
 
 
@@ -62,31 +65,23 @@ function getCurrImage() {
 }
 
 
-function getImageByUrl(imageUrl) {
-    var image = gImgs.find(function (image) {
-        return imageUrl === image.url
-    })
-    return image;
-}
 
-function setSelectedImg(imageId){
+
+function setSelectedImg(imageId) {
     gMeme.selectedImgId = imageId
+    _saveMemeToStorage()
 }
 
 
 
-// function _createImages() {
-//     if (!images) {
-//         images = []
-//         for (var i = 1; i <= 18; i++) {
-//             var image = gImgs[i]
-//             var imgSrc = img.url
-//             var imgId = img.id
-//             images.push(_createImages(image, imgSrc, imgId))
-//         }
-//     }
-//     gImages = images
-//     console.log(gImages)
+function setMemeText(text) {
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].txt = text
+    
+} 
 
 
-// }
+
+function _saveMemeToStorage() {
+    saveToStorage(STORAGE_KEY, gMeme)
+}

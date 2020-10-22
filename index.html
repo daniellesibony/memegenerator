@@ -20,16 +20,18 @@
     </header>
 
     <div class="meme-editor">
-        <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color"
-            value="#00FFFF" onchange="setOutlineColor(this.value)">
-        <label for="shape-color">Pick Your Shape Color: </label> <input id="shape-color" type="color" value="#FFFFFF"
+        <label for="shape-color">Pick Text Color: </label> <input id="shape-color" type="color" value="#000000"
             onchange="setFillColor(this.value)">
-        <input type="text" placeholder="Enter Text Here" onchange="setText(event)">
-        <button onclick="setCurrDrawing('text')">Enter</button>
+        <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color"
+            value="#ffffff" onchange="setOutlineColor(this.value)">
+        <input type="text" placeholder="Enter Text Here" onchange="onSetMemeText(event, this.value)">
+        <button onclick="draw(event)">Enter</button>
+        <input type="text" placeholder="Enter Text Here" onchange="onSetMemeText(event, this.value)">
+        <button onclick="draw(event)">Enter</button>
         <button onclick="clearCanvas()">Clear</button>
         <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
         <div class="canvas-container">
-            <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+            <canvas id="my-canvas" height="450" width="450"></canvas>
         </div>
     </div>
 
@@ -38,25 +40,6 @@
             <input type="text" placeholder="search">
         </div>
         <div class="gallery-container images grid">
-            <!-- onclick="showMemeEditor()"  -->
-        <!-- <img src="images/1.jpg" class="img img1">
-            <img src="images/2.jpg" class="img img2">
-            <img src="images/3.jpg" class="img img3">
-            <img src="images/4.jpg" class="img img4">
-            <img src="images/5.jpg" class="img img5">
-            <img src="images/6.jpg" class="img img6">
-            <img src="images/7.jpg" class="img img7">
-            <img src="images/8.jpg" class="img img8">
-            <img src="images/9.jpg" class="img img9">
-            <img src="images/10.jpg" class="img img10">
-            <img src="images/11.jpg" class="img img11">
-            <img src="images/12.jpg" class="img img12">
-            <img src="images/13.jpg" class="img img13">
-            <img src="images/14.jpg" class="img img14">
-            <img src="images/15.jpg" class="img img15">
-            <img src="images/16.jpg" class="img img16">
-            <img src="images/17.jpg" class="img img17">
-            <img src="images/18.jpg" class="img img18"> -->
         </div>
 
 
@@ -78,7 +61,7 @@
 
 
 
-
+    <script src="js/storage-service.js"></script>
     <script src="js/service.js"></script>
     <script src="js/main.js"></script>
 

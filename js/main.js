@@ -46,21 +46,18 @@ function onSetFillColor(color) {
 }
 
 
-
-
-function setText(ev) {
-    const { value } = ev.target
+function onSetMemeText(ev, text){
+    const {value} = ev.target
     gText = value
+    setMemeText(text)
 }
+
+
 
 function draw(ev) {
     const { offsetX, offsetY } = ev
-
-    switch (gCurrDrawing) {
-        case 'text':
-            drawText(gText, offsetX, offsetY)
-            break;
-
+    if (gCurrDrawing === 'text') {
+        drawText(gText, offsetX, offsetY)
     }
 }
 
@@ -88,9 +85,16 @@ function showGallery() {
 
 }
 
+
+function renderCanvas(){
+   drawImg()
+   // to do:
+   // draw lines that will call draw line
+}
+
 function showMemeEditor(imageId) {
     setSelectedImg(imageId)
-    drawImg()
+    renderCanvas()
     var elMemeEditor = document.querySelector('.meme-editor');
     var elGallery = document.querySelector('.main-container');
     if (elGallery.style.display === 'none') {
@@ -98,7 +102,7 @@ function showMemeEditor(imageId) {
     }
     if (elMemeEditor.style.display === 'none') {
         (elMemeEditor.style.display = 'block') && (elGallery.style.display = 'none');
-    } 
+    }
     else {
         elMemeEditor.style.display = 'none';
     }
