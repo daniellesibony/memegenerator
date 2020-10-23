@@ -21,11 +21,13 @@
 
     <div class="meme-editor">
         <label for="shape-color">Pick Text Color: </label> <input id="shape-color" type="color" value="#000000"
-            oninput="onSetFillColor(event, this.value)">
+            oninput="onSetFillColor(this.value)">
         <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color"
-            value="#ffffff" oninput="onSetOutlineColor(event, this.value)">
-        <input class="text-input" type="text" placeholder="Enter Text Here" oninput="onSetMemeText(event, this.value)">
+            value="#ffffff" oninput="onSetOutlineColor(this.value)">
+        <input class="text-input" type="text" placeholder="Enter Text Here" oninput="onSetMemeText(this.value)">
         <button onclick="onSwitchMemeText()">Switch</button>
+        <button onclick="onMoveTextUp()">move up</button>
+        <button onclick="onMoveTextDown()">move down</button>
         <input type="range" id="volume" name="volume"
         min="20" max="100" oninput="onIncreaseFontSize(this.value)">
         <button onclick="clearCanvas()">Clear</button>

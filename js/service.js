@@ -13,12 +13,7 @@ var gImgs = [{ id: 1, url: 'images/1.jpg', keywords: ['politics'] },
 { id: 16, url: 'images/16.jpg' }, { id: 17, url: 'images/17.jpg' },
 { id: 18, url: 'images/18.jpg' }];
 
-var gCurrDrawing = 'text'
-var gCurrOutlineColor = 'white'
-var gCurrFillColor = 'black'
-var gText = 'change the text'
-var gCurrFont = 'impact'
-var gCurrFontSize = '48'
+
 
 var gMeme = {
     selectedImgId: 7,
@@ -30,18 +25,18 @@ var gMeme = {
         outLineColor: 'white',
         fillColor: 'black',
         font: 'impact',
-        x: 100,
+        x: 135,
         y: 50
     },
     {   
         txt: 'Enter Text',
-        size: 40,
+        size: 48,
         align: 'start',
         outLineColor: 'red',
         fillColor: 'blue',
         font: 'impact',
-        x: 100,
-        y: 100
+        x: 135,
+        y: 400
     }]
     
 }
@@ -80,7 +75,19 @@ function setY(y){
     let i = gMeme.selectedLineIdx
     gMeme.lines[i].y = y
 }
+function moveYPosUp(y){
+    let i = gMeme.selectedLineIdx
+    gMeme.lines[i].y = y + 20
+}
 
+
+function switchMemeText(){
+    let currLineIdx = ++gMeme.selectedLineIdx
+    if (currLineIdx >= gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0
+    } 
+    console.log(gMeme.selectedLineIdx)
+}
 
 function getCurrImage() {
     let currImg = gImgs.find(function (img) {
