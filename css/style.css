@@ -46,7 +46,6 @@ li{
 }
 
 
-
 header {
     display: flex;
     justify-content: space-between;
@@ -54,9 +53,7 @@ header {
     margin-top: 40px;
     margin-bottom: 40px;
     background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
-    border-radius: 37px;
-
-    
+    border-radius: 37px;  
 }
 
 .logo{
@@ -81,10 +78,60 @@ header {
     margin-left: 60px;
 }
 
+
+.meme-editor {
+    display: none;
+   
+}
+
+
+
+.canvas-edit {
+ display: flex;
+ flex-direction: row-reverse;
+ justify-content: center;
+ background-repeat: no-repeat;
+ background-image: url(/images/Forme_1.png);
+ /* background-size: 500, 700; */
+}
+
+.edit-container{
+    /* width: 450px;
+    height: 450px; */
+    width: 500px;
+    height: 500px;
+    box-shadow: 1px 5px 0  #1d2025, inset 0 5px 0 #1d2025;
+    border-radius: 30px;
+    /* opacity: 0.11; */
+    background-color: #22252c4f;
+    margin-left: 42px;
+}
+
+canvas{
+    display: block;
+    /* margin: 20px auto; */
+    /* margin-left: 20px; */
+    /* border: 1px solid black; */
+    /* background-color: white; */
+    justify-content: flex-start;
+    border-radius: 30px;
+    margin-right: 24px;
+
+}
+
+.text-edit{
+width: 445px;
+height: 57px;
+box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
+border-radius: 28px;
+background-color: #ebeef3;
+}
+
 .search-bar {
     margin-top: 40px;
     margin-bottom: 40px;;
 }
+
 
 .grid {
     display: grid;
@@ -96,28 +143,11 @@ header {
   
 }
 
-.img {
+.img{
+    cursor: pointer;
     object-fit: cover;
     width: 200px;
     height: 200px;
-}
-
-
-
-canvas{
-    display: block;
-    margin: 20px auto;
-    border: 1px solid black;
-    background-color: white;
-
-}
-
-.meme-editor {
-    display: none;
-}
-
-.img{
-    cursor: pointer;
 }
 
 

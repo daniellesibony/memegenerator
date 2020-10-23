@@ -28,17 +28,17 @@ var gMeme = {
         x: 135,
         y: 50
     },
-    {   
+    {
         txt: 'Enter Text',
         size: 48,
         align: 'start',
-        outLineColor: 'red',
-        fillColor: 'blue',
+        outLineColor: 'white',
+        fillColor: 'black',
         font: 'impact',
         x: 135,
         y: 400
     }]
-    
+
 }
 
 
@@ -66,27 +66,98 @@ function setFillColor(color) {
     gMeme.lines[i].fillColor = color
 }
 
-function setX(x){
+function setX(x) {
     let i = gMeme.selectedLineIdx
     gMeme.lines[i].x = x
 }
 
-function setY(y){
+function setY(y) {
     let i = gMeme.selectedLineIdx
     gMeme.lines[i].y = y
 }
-function moveYPosUp(y){
+function moveYPosUp() {
     let i = gMeme.selectedLineIdx
-    gMeme.lines[i].y = y + 20
+    let currY = gMeme.lines[i].y
+    currY += 20;
+    currY++;
+    console.log(currY)
+}
+
+function addTextLine() {
+    let newLine = {
+        txt: 'Enter Text',
+        size: 48,
+        align: 'start',
+        outLineColor: 'white',
+        fillColor: 'black',
+        font: 'impact',
+        x: 135,
+        y: 250
+    }
+
+    let lines = gMeme.lines
+    lines.push(newLine)
+    let midTxtLine = lines[2].txt
+    if (midTxtLine.length > 0) return;
+
+    
+
+}
+
+function addAnotherTextLine() {
+    let lines = gMeme.lines
+
+    let newLine = {
+        txt: 'Enter Text',
+        size: 48,
+        align: 'start',
+        outLineColor: 'white',
+        fillColor: 'black',
+        font: 'impact',
+        x: 135,
+        y: 50
+    }
+
+    let anotherNewLine = {
+        txt: 'Enter Text',
+        size: 48,
+        align: 'start',
+        outLineColor: 'white',
+        fillColor: 'black',
+        font: 'impact',
+        x: 135,
+        y: 50
+    }
+    
+    let firstLine = lines[0].txt
+    console.log('the first line is,', firstLine)
+    let lastLine = lines[1].txt
+    console.log('the last line is,', lastLine)
+
+    console.log('length is', firstLine.length)
+
+    if (firstLine.length === 0) {
+        lines.push(newLine)
+    }
+
+    if (lastLine.length === 0) {
+        lines.push(anotherNewLine)
+    }
+
 }
 
 
-function switchMemeText(){
+function deleteTextLine() {
+    let lines = gMeme.lines
+    lines.pop()
+}
+
+
+function switchMemeText() {
     let currLineIdx = ++gMeme.selectedLineIdx
     if (currLineIdx >= gMeme.lines.length) {
         gMeme.selectedLineIdx = 0
-    } 
-    console.log(gMeme.selectedLineIdx)
+    }
 }
 
 function getCurrImage() {
@@ -97,11 +168,11 @@ function getCurrImage() {
 }
 
 
-function getMeme(){
+function getMeme() {
     return gMeme
 }
 
-function getImages(){
+function getImages() {
     return gImgs;
 }
 
@@ -116,15 +187,14 @@ function setSelectedImg(imageId) {
 function setMemeText(text) {
     let i = gMeme.selectedLineIdx
     gMeme.lines[i].txt = text
-    
-} 
 
-function switchMemeText(){
+}
+
+function switchMemeText() {
     let currLineIdx = ++gMeme.selectedLineIdx
     if (currLineIdx >= gMeme.lines.length) {
         gMeme.selectedLineIdx = 0
-    } 
-    console.log(gMeme.selectedLineIdx)
+    }
 }
 
 

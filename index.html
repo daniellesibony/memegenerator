@@ -20,20 +20,36 @@
     </header>
 
     <div class="meme-editor">
-        <label for="shape-color">Pick Text Color: </label> <input id="shape-color" type="color" value="#000000"
-            oninput="onSetFillColor(this.value)">
-        <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color"
-            value="#ffffff" oninput="onSetOutlineColor(this.value)">
-        <input class="text-input" type="text" placeholder="Enter Text Here" oninput="onSetMemeText(this.value)">
-        <button onclick="onSwitchMemeText()">Switch</button>
-        <button onclick="onMoveTextUp()">move up</button>
-        <button onclick="onMoveTextDown()">move down</button>
-        <input type="range" id="volume" name="volume"
-        min="20" max="100" oninput="onIncreaseFontSize(this.value)">
-        <button onclick="clearCanvas()">Clear</button>
-        <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
-        <div class="canvas-container">
-            <canvas id="my-canvas" height="450" width="450"></canvas>
+        <div class="canvas-edit">
+            <div class="edit-container">
+                <input class="text-input" type="text" placeholder="Enter Text Here" oninput="onSetMemeText(this.value)">
+                <div class="control-btns">
+                    <button class="switch-txt" onclick="onSwitchMemeText()">Switch</button>
+                    <button class="add-btn" onclick="onAddTextLine()">Add</button>
+                    <button class="delete-btn" onclick="onDeleteTextLine()">Delete</button>
+                </div>
+                <div class="txt-edit txt-grid">
+                    <input type="range" id="volume" name="volume" min="20" max="100"
+                        oninput="onIncreaseFontSize(this.value)">
+                    <button class="align-left"></button>
+                    <button class="align-center"></button>
+                    <button class="align-right"></button>
+                    <button class="font-change"></button>
+                    <button onclick="onMoveTextUp()">move up</button>
+                    <button onclick="onMoveTextDown()">move down</button>
+                    <label for="shape-color">Pick Text Color: </label> <input id="shape-color" type="color"
+                        value="#000000" oninput="onSetFillColor(this.value)">
+                    <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color"
+                        value="#ffffff" oninput="onSetOutlineColor(this.value)">
+                </div>
+                <div class="clear-download">
+                    <button onclick="clearCanvas()">Clear</button>
+                    <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+                </div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="500" width="500"></canvas>
+            </div>
         </div>
     </div>
 

@@ -1,8 +1,8 @@
 'use strict'
 
 
-var gCanvas;
-var gCtx;
+let gCanvas;
+let gCtx;
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
@@ -13,31 +13,44 @@ function init() {
 
 
 
-
-
-
-
 function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
     drawImg()
 }
 
 
-function setCurrDrawing(text) {
-    gCurrDrawing = text
+// function setCurrDrawing(text) {
+//     gCurrDrawing = text
+// }
+
+function drawRect(x, y) {
+    gCtx.beginPath()
+    gCtx.rect(x, y, 130, 200)
+    gCtx.strokeStyle = 'black'
+    gCtx.stroke()
 }
 
-
-
 function onSetMemeText(text) {
+    drawRect(100, 20)
     setMemeText(text)
-    console.log(text)
     renderCanvas()
 }
 
-function onMoveTextUp(y) {
-    moveYPosUp(y)
+function onMoveTextUp() {
+    moveYPosUp();
+    renderCanvas();
 
+}
+
+function onAddTextLine() {
+    addTextLine();
+    addAnotherTextLine();
+    renderCanvas();
+}
+
+function onDeleteTextLine() {
+    deleteTextLine()
+    renderCanvas()
 }
 
 
@@ -60,14 +73,12 @@ function onIncreaseFontSize(size) {
 
 function onSetOutlineColor(color) {
     setOutlineColor(color)
-    console.log(color)
     renderCanvas()
 }
 
 
 function onSetFillColor(color) {
     setFillColor(color)
-    console.log(color)
     renderCanvas()
 }
 
@@ -77,7 +88,6 @@ function drawImg() {
     var currImg = getCurrImage()
     var currImgUrl = currImg.url
     img.src = currImgUrl;
-    console.log(img.src)
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         drawLines()
@@ -112,7 +122,6 @@ function drawLines() {
     let currMeme = getMeme()
     currMeme.lines.forEach(function (line) {
         drawLine(line)
-        console.log('line is:', line)
     })
 }
 
@@ -131,15 +140,10 @@ function showMemeEditor(imageId) {
     renderCanvas()
     var elMemeEditor = document.querySelector('.meme-editor');
     var elGallery = document.querySelector('.main-container');
-    if (elGallery.style.display === 'none') {
-        elMemeEditor.style.display = 'block'
-    }
-    if (elMemeEditor.style.display === 'none') {
-        (elMemeEditor.style.display = 'block') && (elGallery.style.display = 'none');
-    }
-    else {
-        elMemeEditor.style.display = 'none';
-    }
+    
+    elMemeEditor.style.display = 'block'
+    elGallery.style.display = 'none'
+
 
 }
 
@@ -150,7 +154,6 @@ function renderGallery() {
     let images = getImages()
     let elGallery = document.querySelector('.gallery-container')
     let strHtmls = images.map((image) => {
-        console.log(image.url)
         return `
     <img src=${image.url} id=${image.id} class="img" onclick="showMemeEditor(${image.id})">
     `
