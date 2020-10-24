@@ -49,156 +49,177 @@ function setFont(font) {
     gMeme.lines[i].font = (font)
 }
 
+function alignTxtLeft() {
+    gMeme.lines.forEach(function (line){
+        line.align = 'start';
 
-function setFontSize(size) {
-    let i = gMeme.selectedLineIdx
-    gMeme.lines[i].size = parseInt(size)
-}
-
-
-function setOutlineColor(color) {
-    let i = gMeme.selectedLineIdx
-    gMeme.lines[i].outLineColor = color
-}
-
-function setFillColor(color) {
-    let i = gMeme.selectedLineIdx
-    gMeme.lines[i].fillColor = color
-}
-
-function setX(x) {
-    let i = gMeme.selectedLineIdx
-    gMeme.lines[i].x = x
-}
-
-function setY(y) {
-    let i = gMeme.selectedLineIdx
-    gMeme.lines[i].y = y
-}
-function moveYPosUp() {
-    let i = gMeme.selectedLineIdx
-    let currY = gMeme.lines[i].y
-    currY += 20;
-    currY++;
-    console.log(currY)
-}
-
-function addTextLine() {
-    let newLine = {
-        txt: 'Enter Text',
-        size: 48,
-        align: 'start',
-        outLineColor: 'white',
-        fillColor: 'black',
-        font: 'impact',
-        x: 135,
-        y: 250
-    }
-
-    let lines = gMeme.lines
-    lines.push(newLine)
-    let midTxtLine = lines[2].txt
-    if (midTxtLine.length > 0) return;
-
-    
-
-}
-
-function addAnotherTextLine() {
-    let lines = gMeme.lines
-
-    let newLine = {
-        txt: 'Enter Text',
-        size: 48,
-        align: 'start',
-        outLineColor: 'white',
-        fillColor: 'black',
-        font: 'impact',
-        x: 135,
-        y: 50
-    }
-
-    let anotherNewLine = {
-        txt: 'Enter Text',
-        size: 48,
-        align: 'start',
-        outLineColor: 'white',
-        fillColor: 'black',
-        font: 'impact',
-        x: 135,
-        y: 50
-    }
-    
-    let firstLine = lines[0].txt
-    console.log('the first line is,', firstLine)
-    let lastLine = lines[1].txt
-    console.log('the last line is,', lastLine)
-
-    console.log('length is', firstLine.length)
-
-    if (firstLine.length === 0) {
-        lines.push(newLine)
-    }
-
-    if (lastLine.length === 0) {
-        lines.push(anotherNewLine)
-    }
-
-}
-
-
-function deleteTextLine() {
-    let lines = gMeme.lines
-    lines.pop()
-}
-
-
-function switchMemeText() {
-    let currLineIdx = ++gMeme.selectedLineIdx
-    if (currLineIdx >= gMeme.lines.length) {
-        gMeme.selectedLineIdx = 0
-    }
-}
-
-function getCurrImage() {
-    let currImg = gImgs.find(function (img) {
-        return img.id === gMeme.selectedImgId
     })
-    return currImg;
 }
 
 
-function getMeme() {
-    return gMeme
+function alignTxtCenter() {
+    gMeme.lines.forEach(function (line){
+        line.align = 'center';
+
+    })
 }
 
-function getImages() {
-    return gImgs;
+function alignTxtRight() {
+    gMeme.lines.forEach(function (line){
+        line.align = 'right';
+
+    })
 }
 
-
-function setSelectedImg(imageId) {
-    gMeme.selectedImgId = imageId
-    _saveMemeToStorage()
-}
-
-
-
-function setMemeText(text) {
-    let i = gMeme.selectedLineIdx
-    gMeme.lines[i].txt = text
-
-}
-
-function switchMemeText() {
-    let currLineIdx = ++gMeme.selectedLineIdx
-    if (currLineIdx >= gMeme.lines.length) {
-        gMeme.selectedLineIdx = 0
+    function setFontSize(size) {
+        let i = gMeme.selectedLineIdx
+        gMeme.lines[i].size = parseInt(size)
     }
-}
+
+
+    function setOutlineColor(color) {
+        let i = gMeme.selectedLineIdx
+        gMeme.lines[i].outLineColor = color
+    }
+
+    function setFillColor(color) {
+        let i = gMeme.selectedLineIdx
+        gMeme.lines[i].fillColor = color
+    }
+
+    function setX(x) {
+        let i = gMeme.selectedLineIdx
+        gMeme.lines[i].x = x
+    }
+
+    function setY(y) {
+        let i = gMeme.selectedLineIdx
+        gMeme.lines[i].y = y
+    }
+    function moveYPosUp() {
+        let i = gMeme.selectedLineIdx
+        let currY = gMeme.lines[i].y
+        currY += 20;
+        currY++;
+        console.log(currY)
+    }
+
+    function addTextLine() {
+        let newLine = {
+            txt: 'Enter Text',
+            size: 48,
+            align: 'start',
+            outLineColor: 'white',
+            fillColor: 'black',
+            font: 'impact',
+            x: 135,
+            y: 250
+        }
+
+        let lines = gMeme.lines
+        lines.push(newLine)
+        let midTxtLine = lines[2].txt
+        if (midTxtLine.length > 0) return;
 
 
 
-function _saveMemeToStorage() {
-    saveToStorage(STORAGE_KEY, gMeme)
-}
+    }
+
+    function addAnotherTextLine() {
+        let lines = gMeme.lines
+
+        let newLine = {
+            txt: 'Enter Text',
+            size: 48,
+            align: 'start',
+            outLineColor: 'white',
+            fillColor: 'black',
+            font: 'impact',
+            x: 135,
+            y: 50
+        }
+
+        let anotherNewLine = {
+            txt: 'Enter Text',
+            size: 48,
+            align: 'start',
+            outLineColor: 'white',
+            fillColor: 'black',
+            font: 'impact',
+            x: 135,
+            y: 50
+        }
+
+        let firstLine = lines[0].txt
+        console.log('the first line is,', firstLine)
+        let lastLine = lines[1].txt
+        console.log('the last line is,', lastLine)
+
+        console.log('length is', firstLine.length)
+
+        if (firstLine.length === 0) {
+            lines.push(newLine)
+        }
+
+        if (lastLine.length === 0) {
+            lines.push(anotherNewLine)
+        }
+
+    }
+
+
+    function deleteTextLine() {
+        let lines = gMeme.lines
+        lines.pop()
+    }
+
+
+    function switchMemeText() {
+        let currLineIdx = ++gMeme.selectedLineIdx
+        if (currLineIdx >= gMeme.lines.length) {
+            gMeme.selectedLineIdx = 0
+        }
+    }
+
+    function getCurrImage() {
+        let currImg = gImgs.find(function (img) {
+            return img.id === gMeme.selectedImgId
+        })
+        return currImg;
+    }
+
+
+    function getMeme() {
+        return gMeme
+    }
+
+    function getImages() {
+        return gImgs;
+    }
+
+
+    function setSelectedImg(imageId) {
+        gMeme.selectedImgId = imageId
+        _saveMemeToStorage()
+    }
+
+
+
+    function setMemeText(text) {
+        let i = gMeme.selectedLineIdx
+        gMeme.lines[i].txt = text
+
+    }
+
+    function switchMemeText() {
+        let currLineIdx = ++gMeme.selectedLineIdx
+        if (currLineIdx >= gMeme.lines.length) {
+            gMeme.selectedLineIdx = 0
+        }
+    }
+
+
+
+    function _saveMemeToStorage() {
+        saveToStorage(STORAGE_KEY, gMeme)
+    }

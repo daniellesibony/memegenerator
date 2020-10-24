@@ -23,9 +23,6 @@ function clearCanvas() {
 }
 
 
-// function setCurrDrawing(text) {
-//     gCurrDrawing = text
-// }
 
 function drawRect(x, y) {
     gCtx.beginPath()
@@ -57,6 +54,23 @@ function onDeleteTextLine() {
     renderCanvas()
 }
 
+function onAlignTxtLeft(){
+ alignTxtLeft()
+ renderCanvas()
+
+}
+
+function onAlignTxtCenter(){
+    alignTxtCenter()
+    renderCanvas()
+   
+   }
+
+   function onAlignTxtRight(){
+    alignTxtRight()
+    renderCanvas()
+   
+   }
 
 
 function onSwitchMemeText() {
