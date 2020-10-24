@@ -183,7 +183,7 @@ header .logo{
 
 .meme-editor {
     display: none;
-    background-image: url(/images/Forme_1.png);
+    background-image: url(../images/Forme_1.png);
     object-fit: fill;
     background-repeat: no-repeat;
     background-position: left;
