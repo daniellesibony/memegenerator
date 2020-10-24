@@ -201,3 +201,9 @@ function renderGallery() {
 
 }
 
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
+}
+
+
