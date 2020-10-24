@@ -63,14 +63,13 @@ function onAlignTxtLeft(){
 function onAlignTxtCenter(){
     alignTxtCenter()
     renderCanvas()
-   
-   }
+}
 
-   function onAlignTxtRight(){
+function onAlignTxtRight(){
     alignTxtRight()
     renderCanvas()
    
-   }
+}
 
 
 function onSwitchMemeText() {
