@@ -11,6 +11,9 @@ function init() {
 
 }
 
+function showMenu() {
+    document.querySelector('.main-nav').classList.toggle('show');
+}
 
 
 function clearCanvas() {
