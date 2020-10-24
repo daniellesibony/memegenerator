@@ -8,17 +8,17 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: url(/font/Poppins/Poppins-Regular.ttf);
+    src: url(../font/Poppins/Poppins-Regular.ttf);
 }
 
 @font-face {
     font-family: 'Poppins-light';
-    src: url(/font/Poppins/Poppins-Light.ttf);
+    src: url(../font/Poppins/Poppins-Light.ttf);
 }
 
 @font-face {
     font-family: 'Poppins-SemiBold';
-    src: url(/font/Poppins/Poppins-SemiBold.ttf);
+    src: url(../font/Poppins/Poppins-SemiBold.ttf);
 }
 
 
@@ -53,8 +53,8 @@ li{
 /* header */
 
 header {
-    max-width: 1257px;
-    /* min-width: 400px; */
+    /* max-width: 1257px;
+    min-width: 1000px; */
     height: 4.375rem;
     margin: 0 auto;
     display: flex;
@@ -257,13 +257,13 @@ margin-bottom: 1.25rem;
 }
 
 .switch-txt {
-    background: url(/images/switch.png) no-repeat center, linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+    background: url(../images/switch.png) no-repeat center, linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
     box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
 }
 
 .add-btn {
     box-shadow: 1px 5px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    background: url(/images/add.png) no-repeat center, linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
+    background: url(../images/add.png) no-repeat center, linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
     margin-left: 1.5rem;
     margin-right: 1.5rem
 
@@ -271,7 +271,7 @@ margin-bottom: 1.25rem;
 
 .delete-btn {
     box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    background: url(/images/delete.png) no-repeat center, linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+    background: url(../images/delete.png) no-repeat center, linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
 }
 
 
@@ -397,29 +397,29 @@ input[type=range] {
 }
 
 .up-arrow{
-    background: url(/images/up-arrow.png) no-repeat center;
+    background: url(../images/up-arrow.png) no-repeat center;
     background-size: 3.125rem;
     width: 1.25rem;
     height: 1.25rem;
 }
 
 .down-arrow{
-    background: url(/images/down-arrow.png) no-repeat center;
+    background: url(../images/down-arrow.png) no-repeat center;
     background-size: 2.8125rem;
     width: 1.25rem;
     height: 1.25rem;
 }
 
 .align-left {
-    background: url(/images/align-left.png) no-repeat center;
+    background: url(../images/align-left.png) no-repeat center;
 }
 
 .align-center {
-    background: url(/images/align-center.png)  no-repeat center;
+    background: url(../images/align-center.png)  no-repeat center;
 }
 
 .align-right {
-    background: url(/images/align-right.png) no-repeat center;
+    background: url(../images/align-right.png) no-repeat center;
 }
 
 /* buttons that change the style and color of the text */
@@ -457,7 +457,7 @@ label[for="outline-color"] {
     width: 3.625rem;
     height: 3.3125rem;
     appearance: none;
-    background: url(/images/outline-clr-btn.png) no-repeat center, white;
+    background: url(../images/outline-clr-btn.png) no-repeat center, white;
     box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
     border-radius: 10px;
     background-color: #ffffff;
@@ -481,7 +481,7 @@ label[for="fill-color"] {
     width: 3.625rem;
     height: 3.3125rem;
     appearance: none;
-    background: url(/images/fill-clr-btn.png) no-repeat center, white;
+    background: url(../images/fill-clr-btn.png) no-repeat center, white;
     box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
     border-radius: 10px;
     background-color: #ffffff;
@@ -557,8 +557,10 @@ label[for="fill-color"] {
     width: 1rem;
 }
 
-@media (max-width: 1000px){
+/* tablet  */
 
+@media (max-width: 1000px){
+   
 
     .edit-container {
         margin-top: 20px;
@@ -571,7 +573,19 @@ label[for="fill-color"] {
     }
 }
 
+/* mobile */
+
 @media (max-width: 580px){
+   
+    header{
+        border-radius: 0;
+        min-width: fit-content;
+        margin-bottom: 20px;
+        margin-top: 0;
+        padding-top: 50px;
+        padding-bottom: 50px
+
+    }
 
     body {
         min-width: fit-content;
@@ -600,18 +614,18 @@ label[for="fill-color"] {
     }
 
     .switch-txt{
-        background: url(/images/switch.png) no-repeat center, linear-gradient(-1deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+        background: url(../images/switch.png) no-repeat center, linear-gradient(-1deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
         background-size: 20px;
 
     }
 
     .add-btn{
-        background: url(/images/add.png) no-repeat center, linear-gradient(-1deg, #42eb5c 0%, #37b34a 100%);
+        background: url(../images/add.png) no-repeat center, linear-gradient(-1deg, #42eb5c 0%, #37b34a 100%);
         background-size: 20px;
     }
 
     .delete-btn{
-        background: url(/images/delete.png) no-repeat center, linear-gradient(-1deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+        background: url(../images/delete.png) no-repeat center, linear-gradient(-1deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
         background-size: 20px;
 
     }
@@ -702,11 +716,12 @@ label[for="fill-color"] {
         border: none;
         outline: none;
         cursor: pointer;
-        margin-right: 40px;
     }
 
     .menubtn-img{
         height: 40px;
+        margin-right: 80px;
+
     }
 
     .main-nav {
@@ -722,7 +737,7 @@ label[for="fill-color"] {
     }
     .show {
         display: flex;
-        transform: translateX(0);
+        transform: translateX(100%);
         transition: .3s;
         transition-timing-function: ease-in-out;
     }
