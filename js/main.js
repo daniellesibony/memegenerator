@@ -51,7 +51,7 @@ function onMoveTextDown() {
 
 function onAddTextLine() {
     addTextLine();
-    addAnotherTextLine();
+    // addAnotherTextLine();
     renderCanvas();
 }
 
