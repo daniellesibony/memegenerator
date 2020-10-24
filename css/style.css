@@ -2,9 +2,6 @@
     box-sizing: border-box;
 }
 
-/* websites have 2 vectors, in-line and block elements. a vector in-line inherantly goes from left to right, and the block vector goes from up to down. display in-line works on the horizontal vector, and display block works on the vertical vector */
-
-
 
 
 /* Fontface */
@@ -19,18 +16,25 @@
     src: url(/font/Poppins/Poppins-Light.ttf);
 }
 
+@font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url(/font/Poppins/Poppins-SemiBold.ttf);
+}
 
-/* Basic-- The generic look to things in the website. For ex: tags, images, etc  Always start From Top To Bottom*/
-/*  Ask to go over strong */
+
+/* Basic */
+
 html {
     font-family: Poppins, sans-serif;
     color: #ffffff;}
 
 body{
+    font-family: Poppins, sans-serif;
     font-size: 1rem;
     line-height: 1.25;
     margin: 0;
-    background-color: #22252c;}
+    background-color: #22252c;
+}
 
 h1{
     font-weight: normal;
@@ -45,110 +49,638 @@ li{
     list-style-type: none;
 }
 
+/* header */
 
 header {
+    max-width: 1257px;
+    height: 4.375rem;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
     background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
     border-radius: 37px;  
+    
 }
 
-.logo{
-    margin-left: 80px;
+header .logo{
+    margin-left: 5rem;
+    font-size: 1.375rem;
+    font-family: Poppins;
 }
 
 .main-nav {
     display: flex;
     flex-direction: row;
+    margin-right: 5rem;
 }
 
+
 .main-nav li a{
-    margin: 20px;
+    margin: 1.25rem;
+    font-size: 1.375rem;
+
 }
+
+.main-nav li a:hover{
+  background-color: white;
+  color: #33be6d;
+
+}
+
+/* main container - gallery  */
+
 .main-container {
-    display: block;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    max-width: 77.6875rem;
+    min-width: 643px;
     background-color: #383b42;
-    margin-right: 60px;
-    margin-left: 60px;
+    border-radius: 10px;
+    margin: 0 auto;
 }
+
+.search-bar{
+    margin-left: 1.5rem;
+}
+
+.search{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 33.8125rem;
+    height: 3.625rem;
+    border-radius: 29px;
+    background-color: #22252c;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    font-family: Poppins;
+    font-size: 21px;
+    color: #fefefe;
+    
+
+
+}
+
+[placeholder="search"]{
+    color: #fefefe;
+    opacity: 0.38;
+}
+
+
+
+
+.grid {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    grid-gap: 1.8rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
+    grid-auto-rows: 200px;
+    margin: 0 auto;
+
+  
+}
+
+
+
+.gallery-container .img{
+    cursor: pointer;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.img:hover {
+
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/* meme editor section */
 
 
 .meme-editor {
     display: none;
+    background-image: url(/images/Forme_1.png);
+    object-fit: fill;
+    background-repeat: no-repeat;
+    background-position: left;
    
 }
 
 
 
-.canvas-edit {
+.canvas-editor {
  display: flex;
- flex-direction: row-reverse;
+ flex-direction: row;
+ flex-wrap: wrap;
  justify-content: center;
  background-repeat: no-repeat;
- background-image: url(/images/Forme_1.png);
- /* background-size: 500, 700; */
+
 }
 
 .edit-container{
-    /* width: 450px;
-    height: 450px; */
+    display: flex;
+    flex-direction: column;
     width: 500px;
     height: 500px;
     box-shadow: 1px 5px 0  #1d2025, inset 0 5px 0 #1d2025;
     border-radius: 30px;
-    /* opacity: 0.11; */
     background-color: #22252c4f;
     margin-left: 42px;
 }
 
+
 canvas{
     display: block;
-    /* margin: 20px auto; */
-    /* margin-left: 20px; */
-    /* border: 1px solid black; */
-    /* background-color: white; */
     justify-content: flex-start;
     border-radius: 30px;
     margin-right: 24px;
 
 }
 
-.text-edit{
+/* change text input */
+
+.text-input{
 width: 445px;
 height: 57px;
 box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
 border-radius: 28px;
 background-color: #ebeef3;
+justify-content: center;
+margin: 1.5rem auto;
+border: none;
+outline: none;
+text-align: center;
 }
 
-.search-bar {
-    margin-top: 40px;
-    margin-bottom: 40px;;
+
+
+/* add-delete-switch text buttons */
+
+.buttons-container{
+display: flex;
+justify-content: center;
+margin-bottom: 1.25rem;
 }
 
 
-.grid {
-    display: grid;
-    height: 100%;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    grid-gap: 1rem;
-    grid-auto-flow: dense;
-  
+.buttons-container > * {
+    width: 58px;
+    height: 53px;
+    border-radius: 10px;
+    background-color: #ebeef3;
+    border: none;
+    outline: none;
 }
 
-.img{
+.switch-txt {
+    background: url(/images/switch.png) no-repeat center, linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+    box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+}
+
+.add-btn {
+    box-shadow: 1px 5px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background: url(/images/add.png) no-repeat center, linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem
+
+}
+
+.delete-btn {
+    box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background: url(/images/delete.png) no-repeat center, linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+}
+
+
+
+/* change font size input range */
+
+.fontsize-change{
+    display: flex;
+}
+
+input[type=range] {
+    width: 100%;
+    margin: 13.8px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    background: rgba(48, 196, 169, 0.4);
+    border: 0.2px solid #000101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
     cursor: pointer;
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    margin-top: -14px;
+    width: 16px;
+    height: 36px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #3ed0b5;
+  }
+  input[type=range]::-moz-range-track {
+    background: rgba(48, 196, 169, 0.4);
+    border: 0.2px solid #000101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 36px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 14.8px 0;
+    color: transparent;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #2bb097;
+    border: 0.2px solid #000101;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: rgba(48, 196, 169, 0.4);
+    border: 0.2px solid #000101;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-thumb {
+    width: 16px;
+    height: 36px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 0px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: rgba(48, 196, 169, 0.4);
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #3ed0b5;
+  }
+
+
+
+/* move text buttons */
+
+
+.edit-txt {
+    display: flex;
+    flex-direction: column;
+    margin: 1.875rem auto;
+    width: 27.8125rem;
+    height: 9.4375rem;
+    border-radius: 15px;
+    background-color: #19a59f;
 }
+
+.move-txt {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+}
+
+.edit-txt button{
+    width: 3.5rem;
+    height: 3.1875rem;
+    border-radius: 10px;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-color: #ffffff;
+    outline: none;
+    border: none;
+
+}
+
+.up-arrow{
+    background: url(/images/up-arrow.png) no-repeat center;
+    background-size: 3.125rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.down-arrow{
+    background: url(/images/down-arrow.png) no-repeat center;
+    background-size: 2.8125rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.align-left {
+    background: url(/images/align-left.png) no-repeat center;
+}
+
+.align-center {
+    background: url(/images/align-center.png)  no-repeat center;
+}
+
+.align-right {
+    background: url(/images/align-right.png) no-repeat center;
+}
+
+/* buttons that change the style and color of the text */
+
+.txt-style {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+    margin: auto;
+}
+
+
+
+.font-type {
+    width: 14.75rem;
+    height: 3.125rem;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: none;
+    appearance: 1.28em;
+    color: #22252c;
+    padding: 5px 30px;
+    font-size: 1.28em;
+    text-transform: uppercase;
+    text-align: left;
+    font-family: Poppins-SemiBold, sans-serif;
+    outline: none;
+    margin-right: 1.4375rem
+}
+
+label[for="outline-color"] {
+    width: 3.625rem;
+    height: 3.3125rem;
+    appearance: none;
+    background: url(/images/outline-clr-btn.png) no-repeat center, white;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    margin-left: 0.6875rem;
+    margin-right: 0.6875rem;
+
+}
+
+[class="outline-clr"] {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    visibility: hidden;
+}
+    
+
+label[for="fill-color"] {
+    width: 3.625rem;
+    height: 3.3125rem;
+    appearance: none;
+    background: url(/images/fill-clr-btn.png) no-repeat center, white;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    margin-left: 1.4375rem
+}
+
+[class="fill-clr"] {
+    width: 3.625rem;
+    height: 3.3125rem;
+    padding: 0;
+    border: none;
+    visibility: hidden;
+}
+
+/* clear-download-share meme section */
+
+.clear-download-share{
+    display: flex;
+    justify-content: space-around;
+}
+
+.clear{
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    box-shadow: 1px 6px 0 #a50643;
+    border-radius: 15px;
+    background-color: #bb4485;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1.3125rem;
+    border: none;
+    outline: none;
+}
+
+
+.share {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;
+    box-shadow: 1px 6px 0 #165c9c;
+    border-radius: 15px;
+    background-color: #1e7cd3;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1.3125rem;
+}
+
+.img-share{
+    height: 0.9375rem;
+    width: 1rem;
+}
+
+.download {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+    box-shadow: 1px 6px 0 #632687;
+    border-radius: 15px;
+    background-color: #8f44bb;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1.3125rem;
+}
+
+.img-download{
+    height: 0.9375rem;
+    width: 1rem;
+}
+
+@media (max-width: 1000px){
+
+
+    .edit-container {
+        margin-top: 20px;
+        margin-left: 0;
+        margin-bottom: 20px
+    }
+
+    canvas {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 505px){
+    
+    canvas {
+        height: 400px;
+        width: 400px;
+    }
+
+    .edit-container {
+        height: 400px;
+        width: 400px;
+    }
+
+    .text-input{
+        width: 300px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+
+    .buttons-container > * {
+        width: 40px;
+        height: 40px;
+    }
+
+    .switch-txt{
+        background: url(/images/switch.png) no-repeat center, linear-gradient(-1deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+        background-size: 20px;
+
+    }
+
+    .add-btn{
+        background: url(/images/add.png) no-repeat center, linear-gradient(-1deg, #42eb5c 0%, #37b34a 100%);
+        background-size: 20px;
+    }
+
+    .delete-btn{
+        background: url(/images/delete.png) no-repeat center, linear-gradient(-1deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+        background-size: 20px;
+
+    }
+
+    .up-arrow {
+        background-size: 35px;
+    }
+    .down-arrow{
+        background-size: 35px;
+    }
+
+
+    .align-left{
+        background-size: 20px;
+    }
+
+    .align-center{
+        background-size: 20px;
+    }
+
+    .align-right {
+        background-size: 20px;
+    }
+
+    .fontsize-change {
+        width: 80%;
+        align-self: center;
+    }
+
+    .edit-txt{
+        width: 350px;
+        height: 7rem;
+        margin-top:10px;
+        margin-bottom:10px;
+        align-self: center;
+    }
+
+    .edit-txt button{
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .font-type {
+        width: 10rem;
+        height: 2rem;
+        margin-right: 25px;
+        padding-left: 30px;
+    }
+
+    label[for="outline-color"]{
+        width: 2rem;
+        height: 2rem;
+        background-size: 14px;
+        margin-left:25px;
+        margin-right: 15px;
+    }
+
+
+
+   label[for="fill-color"] {
+        width: 2rem;
+        height: 2rem;
+        background-size: 25px;
+        margin-left:25px;
+    }
+
+    .clear-download-share {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .clear {
+        padding: 10px 5px 5px 5px 
+
+    }
+
+    .share {
+        padding: 10px 5px 5px 5px 
+    }
+
+    .download {
+        padding: 10px 5px 5px 5px
+    }
+
+    
+
+
+}
+
 
 
 

@@ -15,7 +15,8 @@ function init() {
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
-    drawImg()
+    imgToCanvas()
+    
 }
 
 
@@ -31,7 +32,7 @@ function drawRect(x, y) {
 }
 
 function onSetMemeText(text) {
-    drawRect(100, 20)
+    // drawRect(100, 20)
     setMemeText(text)
     renderCanvas()
 }
@@ -71,6 +72,12 @@ function onIncreaseFontSize(size) {
     renderCanvas()
 }
 
+
+function onSetFontType(font){
+    setFont(font)
+    renderCanvas()
+}
+
 function onSetOutlineColor(color) {
     setOutlineColor(color)
     renderCanvas()
@@ -80,6 +87,17 @@ function onSetOutlineColor(color) {
 function onSetFillColor(color) {
     setFillColor(color)
     renderCanvas()
+}
+
+function imgToCanvas() {
+    var img = new Image()
+    var currImg = getCurrImage()
+    var currImgUrl = currImg.url
+    img.src = currImgUrl;
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+    }
+
 }
 
 
@@ -94,6 +112,9 @@ function drawImg() {
     }
 
 }
+
+
+
 
 
 

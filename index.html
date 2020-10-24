@@ -12,59 +12,72 @@
 
 
     <header class="header-container">
-        <h1 class="logo">Meme Generator</h1>
+        <div class="logo">Meme Generator</div>
         <ul class="main-nav">
             <li><a href="#" class="gallery-anchor" onclick="showGallery()">Gallery</a></li>
             <li><a href="#" class="about-anchor">About</a></li>
         </ul>
     </header>
 
+    <main class="main-container">
+        <div class="search-bar">
+            <input class="search" type="text" placeholder="Search">
+        </div>
+        <div class="gallery-container images grid"></div>
+
+    </main>
+
     <div class="meme-editor">
-        <div class="canvas-edit">
-            <div class="edit-container">
-                <input class="text-input" type="text" placeholder="Enter Text Here" oninput="onSetMemeText(this.value)">
-                <div class="control-btns">
-                    <button class="switch-txt" onclick="onSwitchMemeText()">Switch</button>
-                    <button class="add-btn" onclick="onAddTextLine()">Add</button>
-                    <button class="delete-btn" onclick="onDeleteTextLine()">Delete</button>
-                </div>
-                <div class="txt-edit txt-grid">
-                    <input type="range" id="volume" name="volume" min="20" max="100"
-                        oninput="onIncreaseFontSize(this.value)">
-                    <button class="align-left"></button>
-                    <button class="align-center"></button>
-                    <button class="align-right"></button>
-                    <button class="font-change"></button>
-                    <button onclick="onMoveTextUp()">move up</button>
-                    <button onclick="onMoveTextDown()">move down</button>
-                    <label for="shape-color">Pick Text Color: </label> <input id="shape-color" type="color"
-                        value="#000000" oninput="onSetFillColor(this.value)">
-                    <label for="outline-color"> Pick An Outline Color: </label><input id="outline-color" type="color"
-                        value="#ffffff" oninput="onSetOutlineColor(this.value)">
-                </div>
-                <div class="clear-download">
-                    <button onclick="clearCanvas()">Clear</button>
-                    <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
-                </div>
-            </div>
+        <div class="canvas-editor">
             <div class="canvas-container">
                 <canvas id="my-canvas" height="500" width="500"></canvas>
             </div>
+            <div class="edit-container">
+                <input class="text-input" type="text" placeholder="Enter Text Here" oninput="onSetMemeText(this.value)">
+                <div class="buttons-container">
+                    <button class="switch-txt" onclick="onSwitchMemeText()"></button>
+                    <button class="add-btn" onclick="onAddTextLine()"></button>
+                    <button class="delete-btn" onclick="onDeleteTextLine()"></button>
+                </div>
+                <div class="fontsize-change">
+                    <input type="range" id="volume" name="volume" min="20" max="100"
+                        oninput="onIncreaseFontSize(this.value)">
+                </div>
+                <div class="edit-txt">
+                    <div class="move-txt">
+                        <button class="up-arrow" onclick="onMoveTextUp()"></button>
+                        <button class="down-arrow" onclick="onMoveTextDown()"></button>
+                        <button class="align-left"></button>
+                        <button class="align-center"></button>
+                        <button class="align-right"></button>
+                    </div>
+                    <div class="txt-style">
+                        <label for="fonts"></label>
+                        <select onchange="onSetFontType(this.value)" class="font-type" name="fonts" id="fonts">
+                            <option style="font-family:Impact" value="Impact">Impact</option>
+                            <option style="font-family:sans-serif" value="sans-serif">Sans Serif</option>
+                            <option style="font-family:serif" value="serif">Serif</option>
+                            <option style="font-family:cursive" value="cursive">Cursive</option>
+                            <option style="font-family:fantasy" value="fantasy">Fantasy</option>
+                        </select>
+                        <label for="outline-color"><input id="outline-color" type="color" value="#ffffff"
+                                class="outline-clr" oninput="onSetOutlineColor(this.value)"></label>
+                        <label for="fill-color">
+                            <input id="fill-color" type="color" value="#000000" class="fill-clr"
+                                oninput="onSetFillColor(this.value)">
+                        </label>
+                    </div>
+                </div>
+                <div class="clear-download-share">
+                    <button class="clear" onclick="clearCanvas()">Clear</button>
+                    <a href="#" class="share" onclick="shareMeme(this)" download=""> <img class="img-share"
+                            src="/images/share-icon.png"> Share</a>
+                    <a href="#" class="download" onclick="downloadCanvas(this)" download=""><img class="img-download"
+                            src="/images/download-icon.png"> Download</a>
+                </div>
+            </div>
         </div>
     </div>
-
-    <main class="main-container">
-        <div class="search-bar">
-            <input type="text" placeholder="search">
-        </div>
-        <div class="gallery-container images grid">
-        </div>
-
-
-
-
-
-    </main>
 
 
 
