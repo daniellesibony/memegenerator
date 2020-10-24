@@ -38,7 +38,13 @@ function onSetMemeText(text) {
 }
 
 function onMoveTextUp() {
-    moveYPosUp();
+    moveTxtUp();
+    renderCanvas();
+
+}
+
+function onMoveTextDown() {
+    moveTxtDown();
     renderCanvas();
 
 }
