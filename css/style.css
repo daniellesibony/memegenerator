@@ -53,8 +53,8 @@ li{
 /* header */
 
 header {
-    /* max-width: 1257px;
-    min-width: 1000px; */
+    max-width: 1257px;
+    /* min-width: 1000px; */ 
     height: 4.375rem;
     margin: 0 auto;
     display: flex;
@@ -111,11 +111,11 @@ header .logo{
 .main-container {
     display: flex;
     flex-direction: column;
-    max-width: 77.6875rem;
-    min-width: 643px;
+    max-width: 1243px;
+    /* min-width: 643px; */
     background-color: #383b42;
     border-radius: 10px;
-    margin: 0 auto;
+   margin: 0 auto;
 }
 
 .search-bar{
@@ -183,23 +183,24 @@ header .logo{
 
 .meme-editor {
     display: none;
-    background-image: url(../images/Forme_1.png);
-    object-fit: fill;
+    background-image: url(../images/bg.png);
+    object-fit: cover;
     background-repeat: no-repeat;
-    background-position: left;
-   
-}
+    background-position: absolute;
 
+}
 
 
 .canvas-editor {
- display: flex;
- flex-direction: row;
- flex-wrap: wrap;
- justify-content: center;
- background-repeat: no-repeat;
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-repeat: no-repeat;
 }
+
+
 
 .edit-container{
     display: flex;
@@ -209,7 +210,7 @@ header .logo{
     box-shadow: 1px 5px 0  #1d2025, inset 0 5px 0 #1d2025;
     border-radius: 30px;
     background-color: #22252c4f;
-    margin-left: 42px;
+    margin-top: 10px;
 }
 
 
@@ -217,7 +218,7 @@ canvas{
     display: block;
     justify-content: flex-start;
     border-radius: 30px;
-    margin-right: 24px;
+    margin-top: 10px;
 
 }
 
@@ -559,23 +560,37 @@ label[for="fill-color"] {
 
 /* tablet  */
 
-@media (max-width: 1000px){
+@media (max-width: 1200px){
    
+    .main-container{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 
-    .edit-container {
-        margin-top: 20px;
-        margin-left: 0;
-        margin-bottom: 20px
+    /* .edit-container {
+        height: 450px;
+        width: 450px;
     }
 
     canvas {
-        margin-right: 0;
-    }
+        height: 400px;
+        width: 400px;
+    } */
+
+
+
+.search{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 400px;
+    height: 40px;
+}
+
 }
 
 /* mobile */
 
-@media (max-width: 580px){
+@media (max-width: 700px){
    
     header{
         border-radius: 0;
@@ -589,6 +604,23 @@ label[for="fill-color"] {
 
     body {
         min-width: fit-content;
+    }
+
+    .main-container{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .search{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 300px;
+        height: 40px;
+    }
+
+    .search-bar {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     canvas {
