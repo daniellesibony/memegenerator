@@ -3,6 +3,7 @@
 
 let gCanvas;
 let gCtx;
+let isDownloading = false
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
@@ -81,6 +82,7 @@ function onAlignTxtRight(){
 function onSwitchMemeText() {
     switchMemeText()
     setTextInputValue()
+    renderCanvas()
 }
 
 function setTextInputValue() {
@@ -163,7 +165,10 @@ function drawLine(line) {
 
 function drawLines() {
     let currMeme = getMeme()
-    currMeme.lines.forEach(function (line) {
+    currMeme.lines.forEach(function (line, idx) {
+        gCtx.fillStyle = "#c1c1c1a1"
+
+         if(idx === currMeme.selectedLineIdx && !isDownloading) gCtx.fillRect(10, line.y - line.size, gCanvas.width - 20, line.size + 5)
         drawLine(line)
     })
 }
@@ -207,8 +212,15 @@ function renderGallery() {
 }
 
 function downloadImg(elLink) {
+    isDownloading = true
+    renderCanvas()
     var imgContent = gCanvas.toDataURL('image/jpeg');
     elLink.href = imgContent
+}
+
+if (window.pageXOffset < 700 ){
+    gCtx.width = 400
+    gCtx.height = 400
 }
 
 

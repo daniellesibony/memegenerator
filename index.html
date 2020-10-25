@@ -11,13 +11,15 @@
 <body onload="init()">
 
 
+
     <header class="header-container">
         <div class="logo">Meme Generator</div>
         <ul class="main-nav">
             <li><a href="#" class="gallery-anchor" onclick="showGallery()">Gallery</a></li>
             <li><a href="#" class="about-anchor">About</a></li>
         </ul>
-        <button class="btn-menu-mobile" onclick="showMenu()"><img class="menubtn-img" src="images/menu-btn.png"></button>
+        <button class="btn-menu-mobile" onclick="showMenu()"><img class="menubtn-img"
+                src="images/menu-btn.png"></button>
     </header>
 
     <main class="main-container">
@@ -55,7 +57,8 @@
                     <div class="txt-style">
                         <label for="fonts"></label>
                         <select onchange="onSetFontType(this.value)" class="font-type" name="fonts" id="fonts">
-                            <option style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" value="impact">Impact</option>
+                            <option style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+                                value="impact">Impact</option>
                             <option style="font-family:sans-serif" value="sans-serif">Sans Serif</option>
                             <option style="font-family:serif" value="serif">Serif</option>
                             <option style="font-family:cursive" value="cursive">Cursive</option>
@@ -71,10 +74,10 @@
                 </div>
                 <div class="clear-download-share">
                     <button class="clear" onclick="clearCanvas()">Clear</button>
-                    <a href="#" class="share" onclick="shareMeme(this)"> <img class="img-share"
-                            src="images/share-icon.png"> Share</a>
-                    <a href="#" class="download" onclick="downloadImg(this)" download="my-img.jpg"><img class="img-download"
-                            src="images/download-icon.png"> Download</a>
+                    <a href="https://www.facebook.com/login" class="share" onclick="shareMeme(this)"> <img
+                            class="img-share" src="images/share-icon.png"> Share</a>
+                    <a href="#" class="download" onclick="downloadImg(this)" download="my-img.jpg"><img
+                            class="img-download" src="images/download-icon.png"> Download</a>
                 </div>
             </div>
         </div>
@@ -82,6 +85,7 @@
     <footer>
         <small>Created By Danielle Sibony</small>
     </footer>
+
 
 
 

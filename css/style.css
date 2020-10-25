@@ -30,6 +30,7 @@ html {
 
 body{
     height:100%;
+    max-width: 1400px;
     font-family: Poppins, sans-serif;
     font-size: 1rem;
     line-height: 1.25;
@@ -89,6 +90,9 @@ header .logo{
 .main-nav li a:hover{
   background-color: white;
   color: #33be6d;
+  border-radius: 10px;
+  transition: 0.5s;
+  padding: 5px;
 
 }
 
@@ -183,6 +187,12 @@ header .logo{
 
 /* meme editor section */
 
+/* .meme-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+} */
+
 
 .meme-editor {
     display: none;
@@ -190,6 +200,7 @@ header .logo{
     object-fit: cover;
     background-repeat: no-repeat;
     background-position: absolute;
+    
 
 }
 
@@ -213,6 +224,7 @@ header .logo{
     box-shadow: 1px 5px 0  #1d2025, inset 0 5px 0 #1d2025;
     border-radius: 30px;
     background-color: #22252c4f;
+    border: 1px solid #3e353540;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -224,6 +236,7 @@ canvas{
     border-radius: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 100%;
 
 }
 
@@ -286,14 +299,15 @@ margin-bottom: 1.25rem;
 
 .fontsize-change{
     display: flex;
+    justify-content: center;
 }
 
 input[type=range] {
-    width: 100%;
+    width: 90%;
     margin: 13.8px 0;
     background-color: transparent;
     -webkit-appearance: none;
-  }
+}
   input[type=range]:focus {
     outline: none;
   }
@@ -576,7 +590,28 @@ margin-bottom: 2.5rem;
 background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
 border-radius: 37px;
 margin: 20px auto;
+
 }  
+
+
+
+
+/* scroll bar */
+
+/* .main-container {
+    overflow: hidden;
+  }
+  
+  .gallery-container {
+    overflow-y: scroll;
+  }  */
+
+/* .scrollable {
+    height: 100px;
+    overflow-y: scroll;
+} */
+
+
 
 
 /* tablet  */
@@ -644,10 +679,10 @@ margin: 20px auto;
         margin-right: 1rem;
     }
     
-    canvas {
+    /* canvas {
         height: 400px;
         width: 400px;
-    }
+    } */
 
     .edit-container {
         height: 400px;
@@ -791,15 +826,32 @@ margin: 20px auto;
     }
     .show {
         display: flex;
-        transform: translateX(100%);
         transition: .3s;
         transition-timing-function: ease-in-out;
     }
+
+    ul.main-nav.show{
+        padding: 0;
+        height: 60px;
+        margin-top: 10px;
+    }
+
     .main-nav a {
         width: 163px;
         height: 50px;
         color: white;
+        /* margin: 20px; */
     }
+
+    .main-nav li a:hover{
+        background-color: white;
+        color: #33be6d;
+        border-radius: 0;
+        padding: 0;
+      
+      }
+
+
     .logo {
         padding: 0.5em;
     }

@@ -36,12 +36,25 @@ var gMeme = {
         fillColor: 'black',
         font: 'impact',
         x: 250,
-        y: 400
+        y: 480
     }]
 
 }
 
 
+function getYPos(){
+    let i = gMeme.selectedLineIdx
+    let y = gMeme.lines[i].y 
+    return y;
+
+}
+
+function getXPos(){
+    let i = gMeme.selectedLineIdx
+    let y = gMeme.lines[i].x 
+    return x;
+
+}
 
 
 function setFont(font) {
@@ -91,28 +104,8 @@ function moveTxtUp() {
     gMeme.lines[i].y -= 20;
 }
 
-// function addTextLine() {
-//     let newLine = {
-//         txt: 'Enter Text',
-//         size: 48,
-//         align: 'start',
-//         outLineColor: 'white',
-//         fillColor: 'black',
-//         font: 'impact',
-//         x: 135,
-//         y: 250
-//     }
 
-//     let lines = gMeme.lines
-//     lines.push(newLine)
-//     let midTxtLine = lines[2].txt
-//     if (midTxtLine.length > 0) return;
-
-
-
-// }
-
-function addLine(x, y){
+function addLine( y){
     let line = {
         txt: 'Enter Text',
         size: 48,
@@ -120,7 +113,7 @@ function addLine(x, y){
         outLineColor: 'white',
         fillColor: 'black',
         font: 'impact',
-        x,
+        x: 250,
         y
     }
     return line;
@@ -129,61 +122,29 @@ function addLine(x, y){
 }
 
 function addTextLine(){
-    let i = gMeme.selectedLineIdx
     let lines = gMeme.lines
-    let x = lines.x
-    let y = lines.y
-    lines.push(addLine(250, 250))
+    let y;
+    switch (lines.length) {
+        case 0:
+            y = 50
+            break;
+        case 1:
+            y = 480
+            break;
+        default:
+            y = 50 * lines.length +150
+            break;
+    }
 
+    lines.push(addLine(y))
     
 }
 
-// function addAnotherTextLine() {
-//     let lines = gMeme.lines
-
-//     let newLine = {
-//         txt: 'Enter Text',
-//         size: 48,
-//         align: 'start',
-//         outLineColor: 'white',
-//         fillColor: 'black',
-//         font: 'impact',
-//         x: 135,
-//         y: 50
-//     }
-
-//     let anotherNewLine = {
-//         txt: 'Enter Text',
-//         size: 48,
-//         align: 'start',
-//         outLineColor: 'white',
-//         fillColor: 'black',
-//         font: 'impact',
-//         x: 135,
-//         y: 50
-//     }
-
-//     let firstLine = lines[0].txt
-//     console.log('the first line is,', firstLine)
-//     let lastLine = lines[1].txt
-//     console.log('the last line is,', lastLine)
-
-//     console.log('length is', firstLine.length)
-
-//     if (firstLine.length === 0) {
-//         lines.push(newLine)
-//     }
-
-//     if (lastLine.length === 0) {
-//         lines.push(anotherNewLine)
-//     }
-
-// }
 
 
 function deleteTextLine() {
     let lines = gMeme.lines
-    lines.pop()
+    lines.splice(gMeme.selectedLineIdx, 1)
 }
 
 
